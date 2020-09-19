@@ -1,0 +1,29 @@
+How to run the dir_traversal?
+
+first, you need to compile my program. you can use "make all" 
+or just "make".
+
+after the compile, just run the prog-
+
+for example:
+
+$mkdir dir
+$touch dir/a dir/b
+$ln -s a dit/sl
+$mkdir dir/sub
+$touch dir/sub/x
+
+$./dir_traversal dir
+
+output:
+
+D 1706366 dir
+F 1708038 b
+D 1708661 sub
+F 1708682 x
+F 1708034 a
+
+
+you can use "make clean" to clean all the files.
+
+Thanks.

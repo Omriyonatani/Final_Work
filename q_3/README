@@ -1,0 +1,42 @@
+How to run the set_policy ?
+
+first, you need to compile my program. you can use "make all" 
+or just "make".
+
+after the compile, just run the prog-
+
+for example:
+*THIS EXAMPLE IS FOR THE MOST POLICIES EXCEPT THE DEADLINE*  
+
+at the first terminal:
+$sudo ./set_policy <policy> <priority>
+
+at the second terminal:
+$pidof set_policy
+$chrt -p <pid>
+
+
+explanation:
+first terminal:
+at the first terminal you have to run the "set_policy" prog, and to decide the policy and priority that you want.
+(we need to run the program with sudo because we have no permissions with the regular user.)
+
+second terminal:
+we need to check the process ID, and run the "chrt" tool to check if the priority and policy have changed.
+we will see the output that shows the policy and priority.
+
+*THE CHANGE FOR DEADLINE IS - *
+
+at the DEADLINE policy, you need to make it a little bit different- 
+when you run the:
+$sudo ./set_policy 6 0 
+you can see the tid (thread instead of process) of the DEADLINE thread (that it shown in stdout).
+and run in another terminal-
+$chrt -p <tid>
+to check if the policy and priority have changed.
+you will see at the stdout- policy,priority,runtime,deadline and period parameters.
+
+
+you can use "make clean" to clean all the files.
+
+Thanks.

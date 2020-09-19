@@ -1,0 +1,30 @@
+How to run the client & server ?
+
+first, you need to compile my program. you can use "make all" 
+or just "make".
+
+after the compile, just run the prog-
+
+for example:
+at the first terminal run the server:
+$./server
+
+at the second terminal check the pid and run the client:
+$pidof server
+$./client <server pid> 2 1000
+$./client <server pid> 10 1
+
+explanation:
+at the first row - "pidof server" we want to check the process ID of the server, you will see the num by stdout in the terminal
+at the first clients row example- clinet will send 1000 signals type SIGINT to <server pid> server.
+at the second clients row example- the <pid server> server will print the number of SIGINT's that received.
+
+all of that actions work by handlers for SIGINT and SIGUSR1 that you can see at "server.c" code. 
+
+now, after that example- you will see the number of signals are received by the server.
+(it is likely that not everyone was accepted - i wrote explanation why, in the pdf that attached).
+
+
+you can use "make clean" to clean all the files.
+
+Thanks.

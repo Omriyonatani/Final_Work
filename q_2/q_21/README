@@ -1,0 +1,19 @@
+How to run check_pid ?
+
+first, you need to compile my program. you can use "make all" 
+or just "make".
+
+after the compile, just run the prog-
+
+for example:
+./check_pid <pid>
+
+you will see output in the stdout, 
+exists- if the process is exists ( returned 0 from the "kill" signal ),
+does not exist- if errno returned ESRCH
+exists but we have no permission- if errno returned EPERM.
+
+
+you can use "make clean" to clean all the files.
+
+Thanks.
